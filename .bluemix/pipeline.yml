@@ -1,4 +1,8 @@
 ---
+properties:
+- name: myglobalproperty
+  value: weeeeeee
+  type: text
 stages:
 - name: BUILD
   inputs:
