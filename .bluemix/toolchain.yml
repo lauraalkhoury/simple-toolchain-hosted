@@ -24,15 +24,12 @@ services:
   sample-build:
     service_id: pipeline
     parameters:
-      services:
-        - sample-repo
-      name: '{{services.sample-repo.parameters.repo_name}}'
+      name: 'pipeline'
       ui-pipeline: true
       configuration:
         content:
           $text: pipeline.yml
         env:
-          SAMPLE_REPO: sample-repo
           CF_APP_NAME: '{{form.pipeline.parameters.prod-app-name}}'
           PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
@@ -44,6 +41,6 @@ services:
 form:
   pipeline:
     parameters:
-      prod-app-name: '{{services.sample-repo.parameters.repo_name}}'
+      prod-app-name: 'pipeline'
     schema:
       $ref: deploy.json
